@@ -53,7 +53,7 @@ header {
 }
 
 .logo {
-    width: 90px;
+    width: 65px;
     height: auto;
     border-radius: 50%;
     animation: bounce 2s infinite ease-in-out;
@@ -146,7 +146,7 @@ table {
 
 th {
     background: #f1f5f9;
-    padding: 15px;
+    padding: 6px;
     font-weight: 500;
     text-align: center;
     border-bottom: 2px solid var(--border-color);
@@ -165,18 +165,18 @@ th:last-child {
     width: 1%;
     white-space: nowrap;
     text-align: center;
-    padding: 10px 1px;
+    padding: 5px 1px;
 }
 
 .period-cell {
     width: 1%;
-    padding: 4px 1px !important;
+    padding: 2px 1px !important;
     text-align: center;
     vertical-align: middle;
 }
 
 .p-num {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     line-height: 1.1;
     display: block;
@@ -184,7 +184,7 @@ th:last-child {
 }
 
 .p-time {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 400;
     color: var(--text-muted);
     line-height: 1.1;
@@ -197,11 +197,11 @@ th, td {
 }
 
 th:not(.period-th), td:not(.period-cell) {
-    min-width: 48px; /* Width of approximately one name tag (1 person) */
+    min-width: 22px; /* Narrowing down by half */
 }
 
 td {
-    padding: 2px;
+    padding: 1px;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
