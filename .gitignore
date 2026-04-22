@@ -1,0 +1,7 @@
+# Temporary parsing script
+parse_data.py
+# OS files
+.DS_Store
+Thumbs.db
+# Log files
+*.log

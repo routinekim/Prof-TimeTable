@@ -1,0 +1,205 @@
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #10b981;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --highlight-bg: #dcfce7;
+    --highlight-text: #15803d;
+    --header-bg: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--header-bg);
+    border-radius: 24px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.logo-container {
+    margin-bottom: 15px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    /* Subtle bounce animation */
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #1d4ed8, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.search-wrapper {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#nameSearch {
+    width: 100%;
+    padding: 15px 25px;
+    padding-right: 50px;
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+#nameSearch:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+main {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    overflow-x: auto;
+}
+
+.table-container {
+    min-width: 800px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th {
+    background: #f1f5f9;
+    padding: 15px;
+    font-weight: 500;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+}
+
+th:first-child { border-top-left-radius: 12px; }
+th:last-child { 
+    border-top-right-radius: 12px;
+    border-right: none; 
+}
+
+td {
+    padding: 15px 10px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+.period-cell {
+    font-weight: 700;
+    background: #f8fafc;
+    color: var(--primary-color);
+}
+
+.name-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 2px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.name-tag.active {
+    background: var(--highlight-bg);
+    color: var(--highlight-text);
+    font-weight: 700;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hidden-name {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+@media (max-width: 768px) {
+    header { padding: 30px 15px; }
+    h1 { font-size: 1.5rem; }
+    #nameSearch { padding: 12px 20px; font-size: 1rem; }
+}
