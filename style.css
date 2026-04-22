@@ -25,7 +25,7 @@ body {
 }
 
 .app-container {
-    max-width: 1200px;
+    max-width: 850px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -135,11 +135,12 @@ main {
 }
 
 .table-container {
-    min-width: 800px;
+    width: 100%;
 }
 
 table {
-    width: 100%;
+    width: auto;
+    margin: 0 auto;
     border-collapse: separate;
     border-spacing: 0;
 }
