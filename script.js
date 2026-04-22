@@ -1,6 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
     const timetableBody = document.getElementById('timetableBody');
     const searchInput = document.getElementById('nameSearch');
+    const loginOverlay = document.getElementById('loginOverlay');
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+
+    // Auth state management
+    let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    function updateAuthState() {
+        if (isLoggedIn) {
+            loginOverlay.classList.add('hidden');
+            logoutBtn.style.display = 'block';
+            searchInput.disabled = false;
+        } else {
+            loginOverlay.classList.remove('hidden');
+            logoutBtn.style.display = 'none';
+            searchInput.disabled = true;
+            searchInput.value = ''; // Clear search on logout
+            renderTimetable(''); // Reset timetable
+        }
+    }
+
+    // Login Handle
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+
+        if (username === 'admin' && password === '1234') {
+            isLoggedIn = true;
+            localStorage.setItem('isLoggedIn', 'true');
+            updateAuthState();
+            loginError.textContent = '';
+            usernameInput.value = '';
+            passwordInput.value = '';
+        } else {
+            loginError.textContent = '아이디 또는 비밀번호가 올바르지 않습니다.';
+        }
+    });
+
+    // Logout Handle
+    logoutBtn.addEventListener('click', () => {
+        isLoggedIn = false;
+        localStorage.removeItem('isLoggedIn');
+        updateAuthState();
+    });
 
     // Days to iterate through
     const days = ['월', '화', '수', '목', '금'];
@@ -52,8 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const td = document.createElement('td');
                 const names = row.days[day] || [];
                 
-                // Only process names if there is a search query
-                if (queries.length > 0) {
+                // Only process names if there is a search query AND user is logged in
+                if (isLoggedIn && queries.length > 0) {
                     // Create a wrapper for grid layout
                     const contentDiv = document.createElement('div');
                     contentDiv.className = 'cell-content';
@@ -90,10 +138,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event Listener for Search
     searchInput.addEventListener('input', (e) => {
+        if (!isLoggedIn) return; // Guard clause
         const value = e.target.value;
         renderTimetable(value);
     });
 
+    // Initialize Auth state
+    updateAuthState();
+    
     // Initial render with empty search
     renderTimetable();
 });
