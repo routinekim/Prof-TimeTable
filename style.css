@@ -162,32 +162,33 @@ th:last-child {
 }
 
 .period-th, .period-cell {
-    width: 100px; /* narrowed */
-    min-width: 100px;
-    max-width: 100px;
+    width: 60px; /* even narrower reach for period */
+    min-width: 60px;
+    max-width: 60px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 td {
-    padding: 5px; /* Minimal padding */
+    padding: 2px; /* Super minimal padding */
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     vertical-align: middle;
 }
 
-/* 2 names per row grid */
-td:not(.period-cell) {
-    display: table-cell; /* fallback */
-}
+/* Dynamic width cell content */
 td:not(.period-cell) .cell-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px; /* minimal gap */
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    min-width: 50px; /* Base width for 1 person */
+    max-width: 140px; /* Wrap after ~2 people */
+    margin: 0 auto;
 }
 
 td:last-child {
@@ -201,18 +202,19 @@ td:last-child {
 }
 
 .name-tag {
-    display: block;
-    width: 98%; /* Adjust to fit grid tightly */
+    display: inline-block; /* Fixed width removed */
+    width: auto;
     padding: 1px; /* 1 pixel 여백 */
     margin: 1px;
-    border-radius: 2px; /* sharper corners for tight fit */
+    border-radius: 2px;
     background: #f1f5f9;
     color: var(--text-muted);
     transition: all 0.2s ease;
-    font-size: 0.75rem; /* slightly smaller font for tight fit */
+    font-size: 0.75rem;
     text-align: center;
     border: 1px solid transparent;
     line-height: 1.1;
+    white-space: nowrap;
 }
 
 .name-tag.active {
