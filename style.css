@@ -126,6 +126,13 @@ h1 {
     color: var(--text-muted);
 }
 
+.search-info {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
 main {
     background: var(--card-bg);
     border-radius: 20px;
