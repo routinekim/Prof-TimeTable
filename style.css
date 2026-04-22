@@ -212,14 +212,14 @@ td {
 
 /* Dynamic width cell content */
 td:not(.period-cell) .cell-content {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    gap: 2px;
     justify-content: center;
     align-items: center;
-    gap: 2px;
     margin: 0 auto;
     width: max-content; /* Shrink to content */
-    min-width: 40px;
+    min-width: 22px; /* Narrowing down by half */
 }
 
 td:last-child {
