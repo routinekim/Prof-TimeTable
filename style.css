@@ -165,12 +165,12 @@ th:last-child {
     width: 1%;
     white-space: nowrap;
     text-align: center;
-    padding: 10px;
+    padding: 10px 1px;
 }
 
 .period-cell {
     width: 1%;
-    padding: 4px !important;
+    padding: 4px 1px !important;
     text-align: center;
     vertical-align: middle;
 }
@@ -194,6 +194,10 @@ th:last-child {
 
 th, td {
     width: 1%; /* Force columns to shrink down to their contents */
+}
+
+th:not(.period-th), td:not(.period-cell) {
+    min-width: 48px; /* Width of approximately one name tag (1 person) */
 }
 
 td {
