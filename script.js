@@ -95,8 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
             periodTd.innerHTML = `<div class="p-num">${pNum}</div><div class="p-time">${pTime}</div>`;
             tr.appendChild(periodTd);
 
-            // Add class for lunch time (4th period)
-            if (pNum === '4교시') {
+            // Add classes for row styling
+            const grayPeriods = ['0교시', '2교시', '6교시', '8교시', '10교시', '12교시', '14교시'];
+            if (grayPeriods.includes(pNum)) {
+                tr.classList.add('gray-row');
+            } else if (pNum === '4교시') {
                 tr.classList.add('lunch-row');
             }
 

@@ -239,13 +239,21 @@ td:last-child {
     color: var(--primary-color);
 }
 
-/* Lunch row styling (4th period) */
-.lunch-row td {
+/* Row styling for readability */
+.gray-row td {
     background-color: #f1f5f9;
 }
 
-.lunch-row .period-cell {
+.gray-row .period-cell {
     background-color: #e2e8f0;
+}
+
+.lunch-row td {
+    background-color: #fff9c4; /* Light yellow */
+}
+
+.lunch-row .period-cell {
+    background-color: #fff176; /* Slightly darker yellow for period cell */
 }
 
 .name-tag {
