@@ -162,12 +162,25 @@ th:last-child {
 }
 
 .period-th, .period-cell {
-    width: 60px; /* even narrower reach for period */
+    width: 60px;
     min-width: 60px;
-    max-width: 60px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.p-num {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.p-time {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+th, td {
+    width: 1%; /* Force table to shrink to minimum content width */
 }
 
 td {
@@ -186,8 +199,8 @@ td:not(.period-cell) .cell-content {
     justify-content: center;
     align-items: center;
     gap: 2px;
-    min-width: 50px; /* Base width for 1 person */
-    max-width: 140px; /* Wrap after ~2 people */
+    min-width: 45px; /* Narrow enough for 1 person */
+    max-width: 140px; /* Expandable for 2 */
     margin: 0 auto;
 }
 

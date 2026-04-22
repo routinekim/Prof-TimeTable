@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Period Cell
             const periodTd = document.createElement('td');
             periodTd.className = 'period-cell';
-            periodTd.textContent = row.period;
+            // Vertical layout: X교시 <br> (Time)
+            periodTd.innerHTML = `<div class="p-num">${row.period}교시</div><div class="p-time">(${row.time})</div>`;
             tr.appendChild(periodTd);
 
             // Day Cells
