@@ -13,8 +13,14 @@
 <body>
     <div class="app-container">
         <header>
-            <div class="logo-container">
-                <img src="hanbi.gif" alt="한비 로고" class="logo">
+            <div class="logo-wrapper">
+                <div class="logo-container">
+                    <img src="hanbi.gif" alt="한비 로고" class="logo">
+                </div>
+                <div class="qr-container">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://routinekim.github.io/Prof-TimeTable/" alt="QR 코드" class="qr-code">
+                    <span>Scan for Live URL</span>
+                </div>
             </div>
             <h1>한세대학교 2026-1 전임교원 시간표</h1>
             <div class="search-wrapper">
@@ -28,7 +34,7 @@
                 <table id="timetable">
                     <thead>
                         <tr>
-                            <th>시간</th>
+                            <th class="period-th">시간</th>
                             <th>월</th>
                             <th>화</th>
                             <th>수</th>
@@ -44,7 +50,7 @@
         </main>
 
         <footer>
-            <p>&copy; 2026 한세대학교. All rights reserved.</p>
+            <p>All rights reserved Kim Young-Sam.</p>
         </footer>
     </div>
 

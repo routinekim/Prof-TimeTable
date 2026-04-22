@@ -43,6 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Only process names if there is a search query
                 if (queries.length > 0) {
+                    // Create a wrapper for grid layout
+                    const contentDiv = document.createElement('div');
+                    contentDiv.className = 'cell-content';
+
                     names.forEach(name => {
                         const nameLower = name.toLowerCase();
                         // Check if ANY of the search terms match this name
@@ -59,9 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             span.style.color = colors.text;
                             span.style.borderColor = colors.text.replace('25%', '60%');
                             
-                            td.appendChild(span);
+                            contentDiv.appendChild(span);
                         }
                     });
+                    
+                    td.appendChild(contentDiv);
                 }
                 
                 tr.appendChild(td);

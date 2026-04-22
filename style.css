@@ -39,16 +39,40 @@ header {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.logo-container {
-    margin-bottom: 15px;
+.logo-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.logo-container, .qr-container {
+    flex: 0 0 auto;
 }
 
 .logo {
-    width: 100px;
+    width: 90px;
     height: auto;
     border-radius: 50%;
-    /* Subtle bounce animation */
     animation: bounce 2s infinite ease-in-out;
+}
+
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.qr-code {
+    width: 60px;
+    height: 60px;
+}
+
+.qr-container span {
+    font-size: 0.7rem;
+    color: var(--text-muted);
 }
 
 @keyframes bounce {
@@ -134,13 +158,33 @@ th:last-child {
     border-right: none; 
 }
 
+.period-th, .period-cell {
+    width: 100px; /* narrowed */
+    min-width: 100px;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 td {
-    padding: 15px 10px;
+    padding: 5px; /* Minimal padding */
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     vertical-align: middle;
+}
+
+/* 2 names per row grid */
+td:not(.period-cell) {
+    display: table-cell; /* fallback */
+}
+td:not(.period-cell) .cell-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    justify-items: center;
 }
 
 td:last-child {
@@ -154,13 +198,17 @@ td:last-child {
 }
 
 .name-tag {
-    display: inline-block;
-    padding: 4px 8px;
-    margin: 2px;
-    border-radius: 6px;
+    display: block;
+    width: 95%; /* Adjust to fit grid */
+    padding: 2px 4px; /* Approx 1mm 여백 */
+    margin: 2px 0;
+    border-radius: 4px;
     background: #f1f5f9;
     color: var(--text-muted);
     transition: all 0.2s ease;
+    font-size: 0.8rem;
+    text-align: center;
+    border: 1px solid transparent;
 }
 
 .name-tag.active {
