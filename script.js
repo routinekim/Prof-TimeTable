@@ -95,6 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
             periodTd.innerHTML = `<div class="p-num">${pNum}</div><div class="p-time">${pTime}</div>`;
             tr.appendChild(periodTd);
 
+            // Add class for lunch time (4th period)
+            if (pNum === '4교시') {
+                tr.classList.add('lunch-row');
+            }
+
             // Day Cells
             days.forEach(day => {
                 const td = document.createElement('td');
