@@ -352,30 +352,40 @@ footer {
     h1 { font-size: 1.5rem; }
     #nameSearch { padding: 12px 20px; font-size: 1rem; }
 
+    .logo {
+        width: 100px; /* Smaller logo for more space */
+    }
+
     .speech-bubble {
-        right: 50%;
-        transform: translateX(50%);
-        top: -95px;
-        max-width: 160px;
-        font-size: 0.7rem;
+        right: 105%; /* Position to the left */
+        top: 0;
+        transform: none;
+        max-width: 140px;
+        font-size: 0.65rem;
+        padding: 8px 12px;
         background: #ecfdf5;
-        animation: floatMobile 3s infinite ease-in-out;
+        animation: float 3s infinite ease-in-out;
     }
 
     .speech-bubble::after {
-        right: 50%;
-        transform: translateX(50%);
-        top: 100%;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #ecfdf5;
-        border-bottom: none;
+        right: -8px;
+        top: 15px;
+        transform: none;
+        border-left: 8px solid #ecfdf5;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: none;
+    }
+
+    /* Shift logo container slightly to the right to prevent left overflow */
+    .logo-container {
+        transform: translateX(20px);
     }
 }
 
 @keyframes floatMobile {
-    0%, 100% { transform: translateY(0) translateX(50%); }
-    50% { transform: translateY(-5px) translateX(50%); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 /* Login Overlay */
