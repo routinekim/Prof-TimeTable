@@ -40,14 +40,15 @@ header {
 }
 
 .logo-wrapper {
+    position: relative; /* For absolute positioning of QR */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto 20px;
 }
 
-.logo-container, .qr-container {
+.logo-container {
     flex: 0 0 auto;
 }
 
@@ -59,19 +60,21 @@ header {
 }
 
 .qr-container {
+    position: absolute;
+    right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 2px;
 }
 
 .qr-code {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .qr-container span {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     color: var(--text-muted);
 }
 
@@ -183,7 +186,7 @@ td:not(.period-cell) {
 td:not(.period-cell) .cell-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
+    gap: 2px; /* minimal gap */
     justify-items: center;
 }
 
@@ -199,16 +202,17 @@ td:last-child {
 
 .name-tag {
     display: block;
-    width: 95%; /* Adjust to fit grid */
-    padding: 2px 4px; /* Approx 1mm 여백 */
-    margin: 2px 0;
-    border-radius: 4px;
+    width: 98%; /* Adjust to fit grid tightly */
+    padding: 1px; /* 1 pixel 여백 */
+    margin: 1px;
+    border-radius: 2px; /* sharper corners for tight fit */
     background: #f1f5f9;
     color: var(--text-muted);
     transition: all 0.2s ease;
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* slightly smaller font for tight fit */
     text-align: center;
     border: 1px solid transparent;
+    line-height: 1.1;
 }
 
 .name-tag.active {
