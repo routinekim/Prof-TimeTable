@@ -164,29 +164,32 @@ th:last-child {
 .period-th {
     width: 1%;
     white-space: nowrap;
+    text-align: center;
+    padding: 10px;
 }
 
 .period-cell {
     width: 1%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 8px !important;
-    white-space: nowrap;
+    padding: 4px !important;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .p-num {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
+    display: block;
+    white-space: nowrap;
 }
 
 .p-time {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 400;
     color: var(--text-muted);
-    line-height: 1.2;
+    line-height: 1.1;
+    display: block;
+    white-space: nowrap;
 }
 
 th, td {

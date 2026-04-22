@@ -33,8 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
             // Period Cell
             const periodTd = document.createElement('td');
             periodTd.className = 'period-cell';
-            // Vertical layout: X교시 <br> (Time)
-            periodTd.innerHTML = `<div class="p-num">${row.period}교시</div><div class="p-time">(${row.time})</div>`;
+            
+            // Extract "X교시" and "(Time)" from "X교시(Time)"
+            const periodRaw = row.period || "";
+            const match = periodRaw.match(/(.*)(\(.*\))/);
+            let pNum = periodRaw;
+            let pTime = "";
+            if (match) {
+                pNum = match[1]; // e.g. "0교시"
+                pTime = match[2]; // e.g. "(08:00)"
+            }
+            
+            periodTd.innerHTML = `<div class="p-num">${pNum}</div><div class="p-time">${pTime}</div>`;
             tr.appendChild(periodTd);
 
             // Day Cells
