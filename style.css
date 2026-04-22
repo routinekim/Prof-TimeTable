@@ -50,6 +50,7 @@ header {
 
 .logo-container {
     flex: 0 0 auto;
+    position: relative; /* For speech bubble positioning */
 }
 
 .logo {
@@ -57,6 +58,45 @@ header {
     height: auto;
     border-radius: 50%;
     animation: bounce 2s infinite ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+
+.speech-bubble {
+    position: absolute;
+    right: 110%; /* Move to the left of the logo */
+    top: 10px;
+    background: #ecfdf5; /* Light emerald green */
+    border-radius: 18px;
+    padding: 10px 16px;
+    width: max-content;
+    max-width: 180px;
+    font-size: 0.75rem; /* Smaller font */
+    font-weight: 500;
+    color: var(--text-main);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    line-height: 1.4;
+    animation: float 3s infinite ease-in-out;
+    z-index: 1;
+    border: 1px solid rgba(16, 185, 129, 0.15); /* Tinted border */
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #ecfdf5;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-5px) translateX(-2px); }
 }
 
 .qr-container {
@@ -311,6 +351,31 @@ footer {
     header { padding: 30px 15px; }
     h1 { font-size: 1.5rem; }
     #nameSearch { padding: 12px 20px; font-size: 1rem; }
+
+    .speech-bubble {
+        right: 50%;
+        transform: translateX(50%);
+        top: -95px;
+        max-width: 160px;
+        font-size: 0.7rem;
+        background: #ecfdf5;
+        animation: floatMobile 3s infinite ease-in-out;
+    }
+
+    .speech-bubble::after {
+        right: 50%;
+        transform: translateX(50%);
+        top: 100%;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #ecfdf5;
+        border-bottom: none;
+    }
+}
+
+@keyframes floatMobile {
+    0%, 100% { transform: translateY(0) translateX(50%); }
+    50% { transform: translateY(-5px) translateX(50%); }
 }
 
 /* Login Overlay */
